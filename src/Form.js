@@ -13,7 +13,7 @@ export default function Form() {
 
   return (
     <div className="form-container col-3">
-      <h4>It is 19°C in {city}</h4>
+      {/* <h4>It is 19°C in {city}</h4> */}
       <form id="form">
         <input
           className="town"

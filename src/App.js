@@ -5,6 +5,7 @@ import WeatherIcon from "./WeatherIcon";
 import Date from "./Date";
 import ProposedCity from "./ProposedCity";
 import WindHumid from "./WindHumid";
+import GitHubLink from "./GitHubLink"
 import "./App.css";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <WindHumid />
         </div>
       </div>
+      <GitHubLink />
     </div>
   );
 }
