@@ -19,3 +19,69 @@ body {
   padding: 15px 20px;
   font-family: "Poppins", sans-serif;
 }
+
+.ProposedCities h6 {
+  text-align: right;
+  font-weight: 600;
+  line-height: 28px;
+  color: rgb(131, 179, 233);
+}
+
+.ProposedCities h6:hover {
+  color: rgb(6, 121, 253);
+  font-size: larger;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.city {
+  width: 100%;
+  border: 2px solid orangered;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.current {
+  width: 48%;
+  border-radius: 5px;
+  border: 2px solid green;
+  background-color: rgb(105, 243, 105);
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.search {
+  width: 48%;
+  border: 2px solid orangered;
+  background-color: rgb(247, 130, 88);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.current:hover,
+.search:hover {
+  background-color: white;
+  transition: all 200ms ease-in-out;
+}
+
+.form-container {
+  padding-bottom: 30px;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 64px;
+  width: 100%;
+  overflow: hidden;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+

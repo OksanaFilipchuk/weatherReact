@@ -1,0 +1,25 @@
+.CurrentTemp {
+    padding: 15px 0;
+}
+
+.degree,
+span {
+  text-decoration: none;
+  vertical-align: top;
+  border: none;
+  background-color: transparent;
+}
+.degree {
+  top: 25px;
+  vertical-align: top;
+  color: blue
+}
+
+.active {
+  color: black;
+  text-decoration: none;
+}
+
+.curentDegree {
+  vertical-align: bottom;
+}
