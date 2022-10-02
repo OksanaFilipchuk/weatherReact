@@ -9,32 +9,51 @@ import "./App.css";
 import axios from "axios";
 
 export default function App() {
-  let [city, setCity] = useState("lviv")
+
+  let [city, setCity] = useState("Lviv");
+  let [isCurrentCity, setIsCurrentCity] = useState(false);
   let [weatherData, setWeatherData] = useState({
     loaded: false,
     city: "Lviv"   
   });
   
   function handleResponse(response){
-      setWeatherData({
-      loaded: true,
-      temperature: Math.round(response.data.main.temp),
-      humidity: response.data.main.humidity,
-      wind: Math.round(response.data.wind.speed),
-      description: response.data.weather[0].description,
-      dataDate: new Date(response.data.dt*1000),
-      iconCode: response.data.weather[0].icon,
-      city: city,
-    });
+    // setCity(response.data.name);
+    setWeatherData({
+    loaded: true,
+    temperature: Math.round(response.data.main.temp),
+    humidity: response.data.main.humidity,
+    wind: Math.round(response.data.wind.speed),
+    description: response.data.weather[0].description,
+    dataDate: new Date(response.data.dt*1000),
+    iconCode: response.data.weather[0].icon,
+    city: response.data.name,
+  });
+  setIsCurrentCity(false)
+  console.log(response) 
   }
 
+  function addCurrentCoords(){
+    navigator.geolocation.getCurrentPosition(addCurrentCity);
+    function addCurrentCity(position){ 
+      setIsCurrentCity(true)
+      setWeatherData({
+        lon: position.coords.longitude,
+        lat: position.coords.latitude,
+        loaded:false,
+      })
+    }  
+    
+  }
+  
   function changeCity(event){
     event.preventDefault();    
     if(event.target.value){
-      setCity(event.target.value)
+      setCity(event.target.value)      
     } else {
       setCity(event.target.textContent);
-      setWeatherData({city: event.target.textContent})
+      setWeatherData({city: event.target.textContent});
+      setIsCurrentCity(false)
     };
   }
 
@@ -66,7 +85,7 @@ export default function App() {
                 />
                 <div className="buttons">
                   <input className="search" type="submit" value="search" />
-                  <button className="current">current</button>
+                  <button className="current" onClick={addCurrentCoords}>current</button>
                 </div>
               </form>
             </div>
@@ -94,8 +113,14 @@ export default function App() {
     );
   } else {
     let key = "6ac729d0e998a2a2deed63390521ba84";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${weatherData.city}&appid=${key}&units=metric`;
+    let url;
+    if(isCurrentCity){
+      url = `https://api.openweathermap.org/data/2.5/weather?lat=${weatherData.lat}&lon=${weatherData.lon}&appid=${key}&units=metric`      
+    } else {
+      url = `https://api.openweathermap.org/data/2.5/weather?q=${weatherData.city}&appid=${key}&units=metric`;      
+    }
     axios.get(url).then(handleResponse);
+    
     return "Loading"
   }
 
