@@ -17,7 +17,7 @@ export default function CurrentTemp(props){
 
   if(unit==="celsius"){
     return (
-      <div className="CurrentTemp col-4">        
+      <div className="CurrentTemp col-3">        
         <h2 id="curentDegree">{temperature}</h2>
         <button className="degree active" id="C" href="#">
           °C
@@ -30,7 +30,7 @@ export default function CurrentTemp(props){
     )
   } else{
     return (
-      <div className="CurrentTemp col-4">        
+      <div className="CurrentTemp col-3">        
         <h2 id="curentDegree">{temperature}</h2>
         <button className="degree" id="C" href="#" onClick={showCelsius}>
           °C

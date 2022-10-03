@@ -1,0 +1,26 @@
+.DayWeatherForecast h4 {
+    text-align: center;    
+}
+
+.DayWeatherForecast{
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
+}
+
+.minTemp {
+    color: rgba(0, 0, 0, 0.7);
+    font-style: italic;
+}
+
+.maxTemp {
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 700;
+    font-style: italic;
+}
+
+.minMaxTemp{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}

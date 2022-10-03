@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-// import CurrentCity from "./CurrentCity";
+import axios from "axios";
 import WeatherIcon from "./WeatherIcon";
 import CurrentTemp from "./CurrentTemp";
 import CurrentDate from "./Date";
 import WindHumid from "./WindHumid";
-import GitHubLink from "./GitHubLink"
+import GitHubLink from "./GitHubLink";
+import WeatherForecast from "./WeatherForecast";
 import "./App.css";
-import axios from "axios";
+
 
 export default function App() {
 
@@ -28,9 +29,11 @@ export default function App() {
     dataDate: new Date(response.data.dt*1000),
     iconCode: response.data.weather[0].icon,
     city: response.data.name,
+    lon: response.data.coord.lon,
+    lat: response.data.coord.lat,
   });
+  // console.log(response)
   setIsCurrentCity(false)
-  console.log(response) 
   }
 
   function addCurrentCoords(){
@@ -91,7 +94,10 @@ export default function App() {
             </div>
           </div>
           <div className="row">
-            <WeatherIcon iconCode={weatherData.iconCode} size={96}/>
+            <div className="col-3">
+              <WeatherIcon iconCode={weatherData.iconCode} size={96}/>
+              <WindHumid humidity={weatherData.humidity} wind={weatherData.wind} description={weatherData.description} />
+            </div>            
             <CurrentTemp temperature={weatherData.temperature}/>
             <CurrentDate dataDate={weatherData.dataDate} />            
             <div className="ProposedCities col-3">
@@ -103,8 +109,9 @@ export default function App() {
             </div>            
           </div>
           <div className="row">
-          <WindHumid humidity={weatherData.humidity} wind={weatherData.wind} description={weatherData.description} />
+            
           </div>
+          <WeatherForecast lat={weatherData.lat} lon={weatherData.lon}/>
         </div>
         <footer>
           <GitHubLink />

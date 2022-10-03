@@ -3,7 +3,7 @@ import "./WindHumid.css";
 
 export default function WindHumid(props) {
   return (    
-    <div className="WindHumid col-6">
+    <div className="WindHumid">
       <h4 className="weather-info" id="description">
         {props.description}
       </h4>
