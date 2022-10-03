@@ -4,7 +4,6 @@ import "./DayWeatherForecast.css"
 
 export default function DayWeatherForecast(props){
     let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    console.log(props)
     let dayDate = new Date(props.data.dt*1000);
     let day = dayDate.getDay();
     let minTemp= Math.round(props.data.temp.min)

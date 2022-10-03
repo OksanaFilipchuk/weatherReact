@@ -32,7 +32,6 @@ export default function App() {
     lon: response.data.coord.lon,
     lat: response.data.coord.lat,
   });
-  // console.log(response)
   setIsCurrentCity(false)
   }
 
