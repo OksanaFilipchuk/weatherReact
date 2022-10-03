@@ -1,14 +1,14 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import "./CurrentTemp.css"
 
 export default function CurrentTemp(props){
   // let [unit, setUnit]=useState("celsius");
-  let [temperature, setTemperature] = useState(props.temperature);
+  // let [temperature, setTemperature] = useState(props.temperature);
 
   return (
       <div className="CurrentTemp col-3">        
-        <h2 id="curentDegree">{temperature}</h2>
+        <h2 id="curentDegree">{props.temperature}</h2>
         <button className="degree active" id="C" href="#">
           °C
         </button>

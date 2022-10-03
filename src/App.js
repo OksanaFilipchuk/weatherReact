@@ -107,9 +107,6 @@ export default function App() {
               })}
             </div>            
           </div>
-          <div className="row">
-            
-          </div>
           <WeatherForecast lat={weatherData.lat} lon={weatherData.lon}/>
         </div>
         <footer>
